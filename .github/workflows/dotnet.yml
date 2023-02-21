@@ -20,16 +20,16 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Publish
-      run: dotnet publish --self-contained true -c debug -maxcpucount:1
+      run: dotnet publish --self-contained true -c release -maxcpucount:1
     - name: Upload IINACT
       uses: actions/upload-artifact@v3
       with:
         name: IINACT
-        path: IINACT\bin\Debug\net7.0-windows\win-x64\publish\IINACT.exe
+        path: IINACT\bin\Release\net7.0-windows\win-x64\publish\IINACT.exe
     - name: Publish (not self-contained)
-      run: dotnet publish --self-contained false -c debug -maxcpucount:1
+      run: dotnet publish --self-contained false -c release -maxcpucount:1
     - name: Upload IINACT (not self-contained)
       uses: actions/upload-artifact@v3
       with:
         name: IINACT (not self-contained)
-        path: IINACT\bin\Debug\net7.0-windows\win-x64\publish\IINACT.exe
+        path: IINACT\bin\Release\net7.0-windows\win-x64\publish\IINACT.exe
